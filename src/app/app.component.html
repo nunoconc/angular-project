@@ -1,8 +1,8 @@
 <main class="main">
   <div class="content">
     <h1>{{title}}</h1>
-    <app-list [todoItems]="todoItems"/>
-    <app-add/>
+    <app-list [todoItems]="todoItems" [removeItem]="removeItemFromList"/>
+    <app-add [callback]="addItemToList"/>
   </div>
 </main>
 <router-outlet />

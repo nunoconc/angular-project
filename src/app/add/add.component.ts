@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {TodoItem} from "../../types/todoItem";
+import {createTodoItem, TodoItem} from "../../types/todoItem";
+import {TodoItemStorageService} from "../../services/todoItemStorageService";
 
 @Component({
   selector: 'app-add',
@@ -12,12 +13,12 @@ import {TodoItem} from "../../types/todoItem";
   styleUrl: './add.component.css'
 })
 export class AddComponent {
-  todoItem: TodoItem =  {
-    title: '',
-    description: '',
-}
+  @Input() callback: ((item: TodoItem) => void) | undefined
+
+  todoItem: TodoItem =  createTodoItem();
 
   onSubmit() {
-    console.log('Name: %s, Description: %s', this.todoItem.title, this.todoItem.description);
+    this.callback?.({...this.todoItem});
+    this.todoItem =  createTodoItem();
   }
 }

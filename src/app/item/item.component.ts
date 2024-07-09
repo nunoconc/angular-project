@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {TodoItem} from "../../types/todoItem";
+import {TodoItemStorageService} from "../../services/todoItemStorageService";
 
 @Component({
   selector: 'app-item',
@@ -10,4 +11,12 @@ import {TodoItem} from "../../types/todoItem";
 })
 export class ItemComponent {
   @Input() todoItem?: TodoItem;
+  @Input() removeItem?: (item: TodoItem) => void
+
+
+  remove(){
+    if(this.todoItem && this.removeItem){
+      this.removeItem(this.todoItem);
+    }
+  }
 }

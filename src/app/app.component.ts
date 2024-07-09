@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import {ListComponent} from "./list/list.component";
 import {TodoItem} from "../types/todoItem";
 import {AddComponent} from "./add/add.component";
+import {TodoItemStorageService} from "../services/todoItemStorageService";
 
 @Component({
   selector: 'app-root',
@@ -12,15 +13,19 @@ import {AddComponent} from "./add/add.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-project';
-  todoItems: TodoItem[] = [
-    {
-      title: 'example',
-      description: 'this is the description'
-    },
-    {
-      title: 'example',
-      description: 'this is the description'
-    }
-  ];
+  title = 'Todo-List';
+
+  todoItemService = new TodoItemStorageService()
+
+  todoItems = this.todoItemService.get();
+
+  addItemToList = (item: TodoItem) => {
+    this.todoItems.push(item);
+    this.todoItemService.save(this.todoItems);
+  }
+
+  removeItemFromList = (item: TodoItem) => {
+    this.todoItems = this.todoItems.filter(it=> it.key !== item.key);
+    this.todoItemService.save(this.todoItems);
+  }
 }
