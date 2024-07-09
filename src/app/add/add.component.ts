@@ -10,15 +10,15 @@ import {TodoItemStorageService} from "../../services/todoItemStorageService";
     FormsModule
   ],
   templateUrl: './add.component.html',
-  styleUrl: './add.component.css'
+  styleUrl: './add.component.css',
 })
 export class AddComponent {
-  @Input() callback: ((item: TodoItem) => void) | undefined
-
   todoItem: TodoItem =  createTodoItem();
 
+  constructor(private todoItemService: TodoItemStorageService) {}
+
   onSubmit() {
-    this.callback?.({...this.todoItem});
+    this.todoItemService.addItem(this.todoItem);
     this.todoItem =  createTodoItem();
   }
 }

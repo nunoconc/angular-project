@@ -10,22 +10,15 @@ import {TodoItemStorageService} from "../services/todoItemStorageService";
   standalone: true,
   imports: [RouterOutlet, ListComponent, AddComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'Todo-List';
+  todoItems: TodoItem[] = [];
 
-  todoItemService = new TodoItemStorageService()
-
-  todoItems = this.todoItemService.get();
-
-  addItemToList = (item: TodoItem) => {
-    this.todoItems.push(item);
-    this.todoItemService.save(this.todoItems);
-  }
-
-  removeItemFromList = (item: TodoItem) => {
-    this.todoItems = this.todoItems.filter(it=> it.key !== item.key);
-    this.todoItemService.save(this.todoItems);
+  constructor(private todoItemService: TodoItemStorageService) {
+    this.todoItemService.register((items)=>{
+      this.todoItems = items;
+    });
   }
 }

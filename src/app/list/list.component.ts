@@ -12,5 +12,4 @@ import {NgForOf} from "@angular/common";
 })
 export class ListComponent {
   @Input() todoItems: TodoItem[] = [];
-  @Input() removeItem?: (item: TodoItem) => void;
 }

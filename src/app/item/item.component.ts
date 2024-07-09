@@ -7,16 +7,16 @@ import {TodoItemStorageService} from "../../services/todoItemStorageService";
   standalone: true,
   imports: [],
   templateUrl: './item.component.html',
-  styleUrl: './item.component.css'
+  styleUrl: './item.component.css',
 })
 export class ItemComponent {
   @Input() todoItem?: TodoItem;
-  @Input() removeItem?: (item: TodoItem) => void
 
+  constructor(private todoItemService: TodoItemStorageService) {}
 
   remove(){
-    if(this.todoItem && this.removeItem){
-      this.removeItem(this.todoItem);
+    if(this.todoItem){
+      this.todoItemService.removeItem(this.todoItem);
     }
   }
 }
