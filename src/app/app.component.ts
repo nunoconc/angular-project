@@ -13,7 +13,7 @@ import {TodoItemStorageService} from "../services/todoItemStorageService";
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'Todo-List';
+  title = 'To Do List';
   todoItems: TodoItem[] = [];
 
   constructor(private todoItemService: TodoItemStorageService) {

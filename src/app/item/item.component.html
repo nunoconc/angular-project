@@ -1,5 +1,9 @@
-<div>
-  <span> {{ todoItem?.title }}</span>
-  <span> {{ todoItem?.description }} </span>
-  <button (click)="remove()">Remove me</button>
+<div class="container">
+  <div class="container-details">
+    <span class="text-title"> {{ todoItem?.title }}</span>
+    <span class="text-description"> {{ todoItem?.description }} </span>
+  </div>
+  <button class="butotn-remove" (click)="remove()">
+    <mat-icon fontIcon="clear"></mat-icon>
+  </button>
 </div>

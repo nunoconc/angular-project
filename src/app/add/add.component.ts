@@ -2,12 +2,14 @@ import {Component, Input} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {createTodoItem, TodoItem} from "../../types/todoItem";
 import {TodoItemStorageService} from "../../services/todoItemStorageService";
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: 'app-add',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    MatIcon
   ],
   templateUrl: './add.component.html',
   styleUrl: './add.component.css',

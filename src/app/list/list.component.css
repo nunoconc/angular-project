@@ -1,0 +1,11 @@
+.container-list{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  color: #444;
+  border-top: 0;
+}
+
+.container-item{
+  list-style: none;
+}
