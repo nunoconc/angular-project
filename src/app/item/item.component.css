@@ -1,12 +1,11 @@
 .container{
   display: flex;
   flex-direction: row;
-  background-color: #444;
-  color: #fff;
+  background-color: #f1f1f1;
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  margin: 10px;
+  margin: 0 auto;
   justify-content: space-between;
   width: 250px;
 }
@@ -18,24 +17,30 @@
 }
 
 .text-title{
-  font-size: 150%;
+  font-weight: bold;
+  font-size: 120%;
   padding-bottom: 10px;
+  text-transform: capitalize;
 }
 
-.butotn-remove{
+.text-description{
+  text-transform: capitalize;
+}
+
+.button-remove{
   color: white;
   padding: 5px 5px;
   margin: 0 0 0 20px;
-  width: 40px;
-  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   align-self: self-start;
   border: none;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  background-color: #ff0021;
-  background-image: linear-gradient(to bottom, #d37784, #ff0000);
+  background-color: #f64e4e;
+  border-radius: 5px;
 }
 
-.butotn-remove:hover{
-  background-image: none;
+.button-remove:hover{
+  background-color: #b00219;
 }
