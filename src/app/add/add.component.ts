@@ -1,6 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {createTodoItem, TodoItem} from "../../types/todoItem";
+import {TodoItem} from "../../types/todoItem";
 import {TodoItemStorageService} from "../../services/todoItemStorageService";
 import {MatIcon} from "@angular/material/icon";
 
@@ -15,12 +15,23 @@ import {MatIcon} from "@angular/material/icon";
   styleUrl: './add.component.css',
 })
 export class AddComponent {
-  todoItem: TodoItem =  createTodoItem();
+  todoItem: TodoItem =  {
+    key: '',
+    title: '',
+    description: '',
+  };
 
   constructor(private todoItemService: TodoItemStorageService) {}
 
   onSubmit() {
-    this.todoItemService.addItem(this.todoItem);
-    this.todoItem =  createTodoItem();
+    if(!!this.todoItem.description && !!this.todoItem.title){
+      this.todoItem.key = Date.now().toString()
+      this.todoItemService.addItem(this.todoItem);
+      this.todoItem = {
+        key: '',
+        title: '',
+        description: '',
+      };
+    }
   }
 }
