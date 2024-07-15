@@ -1,6 +1,6 @@
 .container-list{
   display: grid;
-  grid-template-columns: repeat(4, minmax(50px, 500px));
+  grid-template-columns: repeat(4, minmax(270px, 500px));
   grid-gap: 30px;
   color: #444;
   border-top: 0;
@@ -8,35 +8,16 @@
   padding: 0;
 
   @media (max-width: 1520px) {
-    grid-template-columns: repeat(3, minmax(50px, 500px));
+    grid-template-columns: repeat(3, minmax(270px, 500px));
   }
   @media (max-width: 1217px) {
-    grid-template-columns: repeat(2, minmax(50px, 500px));
+    grid-template-columns: repeat(2, minmax(270px, 500px));
   }
   @media (max-width: 927px) {
-    grid-template-columns: repeat(1, minmax(50px, 500px));
+    grid-template-columns: repeat(1, minmax(270px, 500px));
   }
 }
 
 .container-item{
   list-style: none;
-}
-
-.button-sort{
-  color: white;
-  padding: 5px;
-  margin: 0 0 20px 20px;
-  border-radius: 5px;
-  min-width: 40px;
-  min-height: 40px;
-  align-self: self-start;
-  justify-self: flex-end;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  background-color: #a86b13;
-}
-
-.button-sort:hover{
-  background-color: #573303;
 }

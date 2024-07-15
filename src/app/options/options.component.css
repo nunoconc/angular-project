@@ -1,0 +1,39 @@
+.container-options {
+  display: flex;
+  flex-direction: row;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 50px;
+  justify-content: space-between;
+  width: 250px;
+  @media (max-width: 635px) {
+    margin: 50px auto;
+  }
+}
+
+.button-sort {
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  min-width: 40px;
+  min-height: 40px;
+  align-self: self-start;
+  justify-self: flex-end;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: #a86b13;
+}
+
+.button-sort:hover {
+  background-color: #573303;
+}
+
+.text-options {
+  margin: auto 0;
+  font-weight: bold;
+  font-size: 120%;
+  text-transform: capitalize;
+}

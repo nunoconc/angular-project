@@ -19,18 +19,21 @@ export class AddComponent {
     key: '',
     title: '',
     description: '',
+    date: '',
   };
 
   constructor(private todoItemService: TodoItemStorageService) {}
 
   onSubmit() {
     if(!!this.todoItem.description && !!this.todoItem.title){
-      this.todoItem.key = Date.now().toString()
+      this.todoItem.key = Date.now().toString();
+      this.todoItem.date =  new Date().toDateString();
       this.todoItemService.addItem(this.todoItem);
       this.todoItem = {
         key: '',
         title: '',
         description: '',
+        date: '',
       };
     }
   }

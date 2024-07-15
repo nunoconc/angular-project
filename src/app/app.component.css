@@ -11,6 +11,11 @@
   }
 }
 
+.extra-div {
+  display: flex;
+  flex-direction: column;
+}
+
 .title-label{
   font-weight: bold;
   text-align: center;

@@ -4,9 +4,13 @@
       {{title}}
       <mat-icon class="icon" fontIcon="sticky_note_2"></mat-icon>
     </h1>
+    
     <div class="content-div">
       <app-list [todoItems]="todoItems" />
-      <app-add />
+      <div class="extra-div">
+        <app-add />
+        <app-options />
+      </div>
     </div>
   </div>
 </main>

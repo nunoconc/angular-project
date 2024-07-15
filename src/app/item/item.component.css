@@ -27,6 +27,11 @@
   text-transform: capitalize;
 }
 
+.text-date{
+  text-transform: capitalize;
+  font-style: italic;
+}
+
 .button-remove{
   color: white;
   padding: 5px 5px;

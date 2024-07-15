@@ -5,11 +5,12 @@ import {TodoItem} from "../types/todoItem";
 import {AddComponent} from "./add/add.component";
 import {TodoItemStorageService} from "../services/todoItemStorageService";
 import {MatIcon} from "@angular/material/icon";
+import { OptionsComponent } from "./options/options.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ListComponent, AddComponent, MatIcon],
+  imports: [RouterOutlet, ListComponent, AddComponent, MatIcon, OptionsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
