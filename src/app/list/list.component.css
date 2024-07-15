@@ -1,7 +1,7 @@
 .container-list{
   display: grid;
   grid-template-columns: repeat(4, minmax(270px, 500px));
-  grid-gap: 30px;
+  grid-gap: 40px;
   color: #444;
   border-top: 0;
   margin: 0;

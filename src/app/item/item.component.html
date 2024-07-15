@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container{{this.isExpanded? ' expanded':''}}" (mouseover)="expand()" (mouseleave)="minimize()">
   <div class="container-details">
-    <span class="text-title"> {{ todoItem?.title }}</span>
-    <span class="text-description"> {{ todoItem?.description }} </span>
+    <span class="text-title{{this.isExpanded? ' expanded':''}}"> {{ todoItem?.title }}</span>
+    <span class="text-description{{this.isExpanded? ' expanded':''}}"> {{ todoItem?.description }} </span>
     <span class="text-date"> {{ todoItem?.date }}</span>
   </div>
   <button class="button-remove" (click)="remove()">

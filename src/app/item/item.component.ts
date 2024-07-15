@@ -12,8 +12,17 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class ItemComponent {
   @Input() todoItem?: TodoItem;
+  isExpanded: boolean = false;
 
   constructor(private todoItemService: TodoItemStorageService) {}
+
+  expand(){
+    this.isExpanded = true;
+  }
+
+  minimize(){
+    this.isExpanded = false;
+  }
 
   remove(){
     if(this.todoItem){
