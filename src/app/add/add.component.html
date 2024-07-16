@@ -1,9 +1,9 @@
 <form (ngSubmit)="onSubmit()" class="form-container">
   <div class="text-container">
     <label class="labels" for="title">Title</label>
-    <input class="inputs" type="text" id="title" name="title" [(ngModel)]="todoItem.title" required maxlength="20">
+    <input class="inputs" type="text" id="title" name="title" [(ngModel)]="title" required maxlength="20">
     <label class="labels" for="description">Description</label>
-    <input class="inputs" type="email" id="description" name="description" [(ngModel)]="todoItem.description" required maxlength="60">
+    <input class="inputs" type="email" id="description" name="description" [(ngModel)]="description" required maxlength="60">
   </div>
   <button class="button-add" type="submit">
     <mat-icon fontIcon="note_add"></mat-icon>

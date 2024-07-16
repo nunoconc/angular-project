@@ -29,4 +29,10 @@ export class ItemComponent {
       this.todoItemService.removeItem(this.todoItem);
     }
   }
+
+  done(){
+    if(this.todoItem){
+      this.todoItemService.doneItem(this.todoItem);
+    }
+  }
 }

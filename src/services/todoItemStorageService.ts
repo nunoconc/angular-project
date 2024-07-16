@@ -56,4 +56,20 @@ export class TodoItemStorageService {
 
     this.eventEmitter.emit(filteredList);
   }
+
+  doneItem(item: TodoItem): void {
+    const list = this.getAllItems();
+
+    const mappedList = list.map(it => {
+      if(it.key === item.key) {
+        it.done = !it.done;
+      }
+      
+      return it;
+    });
+
+    sessionStorage.setItem(this.key, JSON.stringify(mappedList));
+
+    this.eventEmitter.emit(mappedList);
+  }
 }

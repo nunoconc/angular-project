@@ -20,6 +20,10 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 0 10px;
+
+  &.done {
+    text-decoration: line-through;
+  }
 }
 
 .text-title{
@@ -78,4 +82,37 @@
 
 .button-remove:hover{
   background-color: #b00219;
+}
+
+.button-done{
+  color: white;
+  padding: 5px 5px;
+  margin: 0 0 0 20px;
+  min-width: 40px;
+  min-height: 40px;
+  align-self: self-start;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: #60b114;
+  border-radius: 5px;
+
+  &.done {
+    background-color: #d9dd21;
+  }
+}
+
+.button-done:hover{
+  background-color: #366108;
+
+  &.done {
+    background-color: #808210;
+  }
+}
+
+.container-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 10px;
 }

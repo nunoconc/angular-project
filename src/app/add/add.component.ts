@@ -15,26 +15,24 @@ import {MatIcon} from "@angular/material/icon";
   styleUrl: './add.component.css',
 })
 export class AddComponent {
-  todoItem: TodoItem =  {
-    key: '',
-    title: '',
-    description: '',
-    date: '',
-  };
+  title = '';
+  description = '';
+
 
   constructor(private todoItemService: TodoItemStorageService) {}
 
   onSubmit() {
-    if(!!this.todoItem.description && !!this.todoItem.title){
-      this.todoItem.key = Date.now().toString();
-      this.todoItem.date =  new Date().toDateString();
-      this.todoItemService.addItem(this.todoItem);
-      this.todoItem = {
-        key: '',
-        title: '',
-        description: '',
-        date: '',
-      };
+    if(!!this.description && !!this.title){
+      this.todoItemService.addItem({
+        key:  Date.now().toString(),
+        title: this.title,
+        description: this.description,
+        date: new Date().toDateString(),
+        done: false,
+      });
+
+      this.title = '';
+      this.description = '';
     }
   }
 }
