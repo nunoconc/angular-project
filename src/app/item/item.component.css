@@ -30,7 +30,7 @@
   font-weight: bold;
   font-size: 120%;
   text-transform: capitalize;
-  word-break: break-all;
+  word-break: break-word;
   overflow: hidden;
   display: -webkit-box;
    -webkit-line-clamp: 2;
@@ -45,7 +45,7 @@
 
 .text-description{
   text-transform: capitalize;
-  word-break: break-all;
+  word-break: break-word;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;

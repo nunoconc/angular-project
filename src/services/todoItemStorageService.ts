@@ -11,18 +11,26 @@ export class TodoItemStorageService {
   key = 'todo-list-storage';
   eventEmitter = new EventEmitter<TodoItem[]>();
   sorted = false;
+  filtered = false;
 
 
-  setSort(sort: boolean) {
+  setOptions(sort: boolean, filter: boolean) {
     this.sorted = sort;
+    this.filtered = filter;
 
-    const list = this.sortList(this.getAllItems());
+    const list = this.optionsList(this.getAllItems());
 
     this.eventEmitter.emit(list);
   }
 
-  sortList(list: TodoItem[]) {
-    return this.sorted ? list.sort((a, b) => a.title.localeCompare(b.title)) : list;
+  optionsList(list: TodoItem[]) {
+    return list
+    .filter(item => !this.filtered || !item.done )
+    .sort((a, b) => this.sorted ? a.title.localeCompare(b.title) : a.key.localeCompare(b.key));
+  }
+
+  filterList(list: TodoItem[]){
+    return this.filtered ? list.filter((item) => item.done) : list;
   }
 
   register(callback: (items: TodoItem[]) => void) {
@@ -45,7 +53,7 @@ export class TodoItemStorageService {
     list.push(item);
     sessionStorage.setItem(this.key, JSON.stringify(list));
 
-    this.eventEmitter.emit(this.sortList(list));
+    this.eventEmitter.emit(this.optionsList(list));
   }
 
   removeItem(item: TodoItem): void {

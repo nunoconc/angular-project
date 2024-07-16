@@ -11,16 +11,19 @@ import {TodoItemStorageService} from "../../services/todoItemStorageService";
 })
 export class OptionsComponent {
   sorted = false;
+  filtered = false;
 
   constructor(private todoItemService: TodoItemStorageService) {}
 
-
-  fontIcon(){
-    return this.sorted ? 'sort_by_alpha' : 'calendar_month';
-  }
-
   sort() {
     this.sorted = !this.sorted;
-    this.todoItemService.setSort(this.sorted);
+    this.todoItemService.setOptions(this.sorted, this.filtered);
   }
+
+  filter() {
+    this.filtered = !this.filtered;
+    this.todoItemService.setOptions(this.sorted, this.filtered);
+  }
+
+
 }

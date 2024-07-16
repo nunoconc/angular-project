@@ -13,7 +13,7 @@
   }
 }
 
-.button-sort {
+.button-option {
   color: white;
   padding: 5px;
   border-radius: 5px;
@@ -27,7 +27,7 @@
   background-color: #a86b13;
 }
 
-.button-sort:hover {
+.button-option:hover {
   background-color: #573303;
 }
 
