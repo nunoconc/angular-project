@@ -11,5 +11,5 @@ import {NgForOf} from "@angular/common";
   styleUrl: './list.component.css'
 })
 export class ListComponent {
-  @Input() todoItems: TodoItem[] = [];
+  @Input() todoItems: TodoItem[];
 }

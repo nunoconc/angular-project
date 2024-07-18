@@ -1,15 +1,29 @@
-<div class="container{{this.isExpanded? ' expanded':''}}" (mouseover)="expand()" (mouseleave)="minimize()">
-  <div class="container-details {{this.todoItem?.done ? 'done': ''}}">
-    <span class="text-title{{this.isExpanded? ' expanded':''}}"> {{ todoItem?.title }}</span>
-    <span class="text-description{{this.isExpanded? ' expanded':''}}"> {{ todoItem?.description }} </span>
-    <span class="text-date"> {{ todoItem?.date }}</span>
+<div class="container {{isExpanded ? 'expanded':''}}" (mouseover)="expand(true)" (mouseleave)="expand(false)">
+  <div class="container-details {{todoItem.done ? 'done': ''}}">
+    <div [hidden]="isEdit">
+      <span [hidden]="!isEdit" class="text-title {{isExpanded ? 'expanded':''}}">{{ todoItem.title }}</span>
+      <textarea disabled [hidden]="!isEdit" class="text-description {{isExpanded ? 'expanded':''}}">{{ todoItem.description }}</textarea>
+    </div>
+    <div [hidden]="!isEdit">
+      <input [hidden]="!isEdit" class="inputs title" type="text" id="title" name="title" [(ngModel)]="todoItem.title" required
+      maxlength="20"/>
+    <textarea [hidden]="!isEdit" class="inputs description" type="text" id="description" name="description" [(ngModel)]="todoItem.description" required
+      maxlength="60"></textarea>
+    </div>
+    <span class="text-date"> {{ todoItem.date }}</span>
   </div>
   <div class="container-actions">
-    <button class="button-remove" (click)="remove()">
+    <button [hidden]="isEdit" class="button-remove" (click)="remove()">
       <mat-icon fontIcon="delete"></mat-icon>
     </button>
-    <button class="button-done {{this.todoItem?.done ? 'done': ''}}" (click)="done()">
-      <mat-icon fontIcon="{{this.todoItem?.done ? 'remove_done' : 'done_all'}}"></mat-icon>
+    <button [hidden]="todoItem.done" class="button-edit" (click)="edit()">
+      <mat-icon fontIcon="{{isEdit ? 'close' : 'edit'}}"></mat-icon>
+    </button>
+    <button [hidden]="isEdit" class="button-done {{todoItem.done ? 'done': ''}}" (click)="done()">
+      <mat-icon fontIcon="{{todoItem.done ? 'remove_done' : 'done_all'}}"></mat-icon>
+    </button>
+    <button [hidden]="!isEdit" class="button-done" (click)="save()">
+      <mat-icon fontIcon="save"></mat-icon>
     </button>
   </div>
 </div>

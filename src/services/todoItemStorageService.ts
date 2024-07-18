@@ -56,28 +56,23 @@ export class TodoItemStorageService {
     this.eventEmitter.emit(this.optionsList(list));
   }
 
+  updateItem(item: TodoItem): void {
+    var list = this.getAllItems();
+
+    const filteredList = list.filter(it => it.key !== item.key);
+
+    filteredList.push(item);
+    sessionStorage.setItem(this.key, JSON.stringify(filteredList));
+
+    this.eventEmitter.emit(this.optionsList(filteredList));
+  }
+
   removeItem(item: TodoItem): void {
     const list = this.getAllItems();
 
     const filteredList = list.filter(it => it.key !== item.key);
     sessionStorage.setItem(this.key, JSON.stringify(filteredList));
 
-    this.eventEmitter.emit(filteredList);
-  }
-
-  doneItem(item: TodoItem): void {
-    const list = this.getAllItems();
-
-    const mappedList = list.map(it => {
-      if(it.key === item.key) {
-        it.done = !it.done;
-      }
-      
-      return it;
-    });
-
-    sessionStorage.setItem(this.key, JSON.stringify(mappedList));
-
-    this.eventEmitter.emit(mappedList);
+    this.eventEmitter.emit(this.optionsList(filteredList));
   }
 }

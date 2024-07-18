@@ -16,7 +16,7 @@ import { OptionsComponent } from "./options/options.component";
 })
 export class AppComponent {
   title = 'To Do List';
-  todoItems: TodoItem[] = [];
+  todoItems: TodoItem[];
 
   constructor(private todoItemService: TodoItemStorageService) {
     this.todoItemService.register((items)=>{

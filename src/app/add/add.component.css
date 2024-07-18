@@ -29,6 +29,11 @@
   background-color: ghostwhite;
   height: 20px;
   margin: 5px 0;
+  
+  &.description {
+    height: 70px;
+    resize: none;
+  }
 }
 
 .button-add{

@@ -10,8 +10,8 @@ import {TodoItemStorageService} from "../../services/todoItemStorageService";
   styleUrl: './options.component.css'
 })
 export class OptionsComponent {
-  sorted = false;
-  filtered = false;
+  sorted: boolean;
+  filtered: boolean;
 
   constructor(private todoItemService: TodoItemStorageService) {}
 

@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {TodoItem} from "../../types/todoItem";
 import {TodoItemStorageService} from "../../services/todoItemStorageService";
 import {MatIcon} from "@angular/material/icon";
 
