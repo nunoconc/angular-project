@@ -18,9 +18,7 @@ export class TodoItemStorageService {
     this.sorted = sort;
     this.filtered = filter;
 
-    const list = this.optionsList(this.getAllItems());
-
-    this.eventEmitter.emit(list);
+    this.eventEmitter.emit(this.optionsList(this.getAllItems()));
   }
 
   optionsList(list: TodoItem[]) {
@@ -38,7 +36,7 @@ export class TodoItemStorageService {
       callback(list);
     })
 
-    this.eventEmitter.emit(this.getAllItems())
+    this.eventEmitter.emit(this.optionsList(this.getAllItems()));
   }
 
   getAllItems(): TodoItem[] {
