@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {TodoItem} from "../types/todoItem";
 
 @Injectable({
-  providedIn: 'root' // Single instance service configuration
+  providedIn: 'root' // Single instance storage configuration
 })
 export class TodoItemStorage {
 

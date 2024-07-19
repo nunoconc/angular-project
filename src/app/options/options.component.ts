@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import {TodoItemService} from "../../services/todoItemService";
+import {Options} from "../../types/options";
 
 @Component({
   selector: 'app-options',
@@ -10,19 +11,24 @@ import {TodoItemService} from "../../services/todoItemService";
   styleUrl: './options.component.css'
 })
 export class OptionsComponent {
-  sorted: boolean;
-  filtered: boolean;
+  options: Options = this.todoItemService.getOptions();
 
   constructor(private todoItemService: TodoItemService) {}
 
   sort() {
-    this.sorted = !this.sorted;
-    this.todoItemService.setOptions(this.sorted, this.filtered);
+    this.options.sorted = !this.options.sorted;
+    this.todoItemService.setOptions({
+      sorted: this.options.sorted,
+      filtered: this.options.filtered
+    });
   }
 
   filter() {
-    this.filtered = !this.filtered;
-    this.todoItemService.setOptions(this.sorted, this.filtered);
+    this.options.filtered = !this.options.filtered;
+    this.todoItemService.setOptions({
+      sorted: this.options.sorted,
+      filtered: this.options.filtered
+    });
   }
 
 

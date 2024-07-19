@@ -1,29 +1,32 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { TodoItem } from "../types/todoItem";
 import {TodoItemStorage} from "../storage/todoItemStorage";
+import {Options} from "../types/options";
+import {OptionsStorage} from "../storage/optionsStorage";
 
 @Injectable({
   providedIn: 'root' // Single instance service configuration
 })
 export class TodoItemService {
 
-  constructor(private todoItemStorage: TodoItemStorage) { }
+  constructor(private todoItemStorage: TodoItemStorage, private optionsStorage: OptionsStorage) { }
 
   eventEmitter = new EventEmitter<TodoItem[] | undefined>();
-  sorted = false;
-  filtered = false;
 
-  setOptions(sort: boolean, filter: boolean) {
-    this.sorted = sort;
-    this.filtered = filter;
+  getOptions(): Options {
+    return this.optionsStorage.loadOptions();
+  }
 
+  setOptions(options: Options): void {
+    this.optionsStorage.storeOptions(options);
     this.eventEmitter.emit();
   }
 
   optionsList(list: TodoItem[]) {
+    const { filtered, sorted } = this.optionsStorage.loadOptions();
     return list
-      .filter(item => !this.filtered || !item.done )
-      .sort((a, b) => this.sorted ? a.title.localeCompare(b.title) : a.key.localeCompare(b.key));
+      .filter(item => !filtered || !item.done )
+      .sort((a, b) => sorted ? a.title.localeCompare(b.title) : a.key.localeCompare(b.key));
   }
 
   register(callback: (items: TodoItem[]) => void) {
@@ -35,7 +38,7 @@ export class TodoItemService {
 
     this.eventEmitter.emit();
   }
-  
+
   addItem(item: TodoItem): void {
     const list = this.todoItemStorage.loadItems();
     list.push(item);
