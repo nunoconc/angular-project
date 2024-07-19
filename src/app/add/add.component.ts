@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {TodoItemStorageService} from "../../services/todoItemStorageService";
+import {TodoItemService} from "../../services/todoItemService";
 import {MatIcon} from "@angular/material/icon";
 
 @Component({
@@ -18,7 +18,7 @@ export class AddComponent {
   description = '';
 
 
-  constructor(private todoItemService: TodoItemStorageService) {}
+  constructor(private todoItemService: TodoItemService) {}
 
   onSubmit() {
     if(!!this.description && !!this.title){

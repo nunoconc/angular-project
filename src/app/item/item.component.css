@@ -34,12 +34,12 @@
   overflow: hidden;
   display: -webkit-box;
    -webkit-line-clamp: 2;
-           line-clamp: 2; 
+           line-clamp: 2;
    -webkit-box-orient: vertical;
    &.expanded{
     font-size: 100%;
     -webkit-line-clamp: 3;
-    line-clamp: 3; 
+    line-clamp: 3;
   }
 }
 
@@ -49,6 +49,7 @@
   background-color: ghostwhite;
   height: 20px;
   margin: 5px 0;
+  width: 150px;
 
   &.title {
     font-weight: bold;
@@ -65,18 +66,18 @@
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
-          line-clamp: 3; 
+          line-clamp: 3;
   -webkit-box-orient: vertical;
   height: 70px;
   border: none;
   outline: none;
   resize: none;
   font-size: 100%;
-  
+
   &.expanded{
     font-size: 80%;
     -webkit-line-clamp: 4;
-    line-clamp: 4; 
+    line-clamp: 4;
   }
 }
 

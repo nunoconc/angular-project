@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import {TodoItemStorageService} from "../../services/todoItemStorageService";
+import {TodoItemService} from "../../services/todoItemService";
 
 @Component({
   selector: 'app-options',
@@ -13,7 +13,7 @@ export class OptionsComponent {
   sorted: boolean;
   filtered: boolean;
 
-  constructor(private todoItemService: TodoItemStorageService) {}
+  constructor(private todoItemService: TodoItemService) {}
 
   sort() {
     this.sorted = !this.sorted;

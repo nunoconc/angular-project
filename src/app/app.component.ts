@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import {ListComponent} from "./list/list.component";
 import {TodoItem} from "../types/todoItem";
 import {AddComponent} from "./add/add.component";
-import {TodoItemStorageService} from "../services/todoItemStorageService";
+import {TodoItemService} from "../services/todoItemService";
 import {MatIcon} from "@angular/material/icon";
 import { OptionsComponent } from "./options/options.component";
 
@@ -18,7 +18,7 @@ export class AppComponent {
   title = 'To Do List';
   todoItems: TodoItem[];
 
-  constructor(private todoItemService: TodoItemStorageService) {
+  constructor(private todoItemService: TodoItemService) {
     this.todoItemService.register((items)=>{
       this.todoItems = items;
     });
