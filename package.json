@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy:gh-pages": "ng deploy --repo=https://github.com/nunoconc/todolist-angular --name=nunoconc --email=nmpsocialconceicao@gmail.com --base-href=/todolist-angular/" 
   },
 
 
